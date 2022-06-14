@@ -36,11 +36,55 @@ public class ManagerControllerCharacter : MonoBehaviour
     public int coint;
     public TextMeshProUGUI textCoint;
 
+
+
+    //Inventory
+    public Inventory inventory;
+    public GameObject Hand;
+    public Shoot army;
     void Start()
     {
         moveSpeed = 0.1f;
         gravity = 0.5f;
         meshPlayer = _charController.transform.GetChild(0);
+        inventory.ItemUsed += Inventory_ItemUsed;
+    }
+
+    private void Inventory_ItemUsed(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
+        GameObject goItem = (item as MonoBehaviour).gameObject;
+        if (item.Name == "Weapon")
+        {
+            Hand.transform.GetChild(0).gameObject.SetActive(true);
+            Hand.transform.GetChild(1).gameObject.SetActive(false);
+            Hand.transform.GetChild(2).gameObject.SetActive(false);
+            army.nameArmy = "Weapon";
+        }
+
+        if (item.Name == "Axe")
+        {
+            Hand.transform.GetChild(0).gameObject.SetActive(false);
+            Hand.transform.GetChild(1).gameObject.SetActive(true);
+            Hand.transform.GetChild(2).gameObject.SetActive(false);
+            army.nameArmy = "Axe";
+
+        }
+
+        if (item.Name == "FireGun")
+        {
+            Hand.transform.GetChild(0).gameObject.SetActive(false);
+            Hand.transform.GetChild(1).gameObject.SetActive(false);
+            Hand.transform.GetChild(2).gameObject.SetActive(true);
+            army.nameArmy = "FireGun";
+
+        }
+
+
+        //goItem.SetActive(true);
+
+        //goItem.transform.parent = Hand.transform;
+        //goItem.transform.position = Hand.transform.position;
     }
 
     void Update()
@@ -181,5 +225,16 @@ public class ManagerControllerCharacter : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            inventory.AddItem(item);
+        }
+    }
+
 
 }

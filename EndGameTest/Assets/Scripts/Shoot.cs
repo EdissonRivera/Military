@@ -9,9 +9,10 @@ public class Shoot : MonoBehaviour
     //prefab
     public GameObject projectile;
     public Transform refProyectile;
+    public string nameArmy;
     private void Update()
     {
-        Debug.Log(refProyectile.gameObject.activeSelf);
+        //Debug.Log(refProyectile.gameObject.activeSelf);
     }
     public void ShootOn()
     {
