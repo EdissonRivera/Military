@@ -10,7 +10,8 @@ public class InventoryItemBase : MonoBehaviour,IInventoryItem
         {
             return "_base item_";
         }
-    }
+    } 
+    
 
     public Sprite _Image;
     public Sprite Image
@@ -27,13 +28,22 @@ public class InventoryItemBase : MonoBehaviour,IInventoryItem
 
     public virtual void OnDrop()
     {
-        RaycastHit hit = new RaycastHit();
-        Input.simulateMouseWithTouches = true;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 1000))
+        
+        if (gameObject.name != "Axe" && gameObject.name != "Weapon" && gameObject.name != "FireGun" && gameObject.name !="Shield" && gameObject.name !="Bomb")
         {
-            gameObject.SetActive(true);
-            gameObject.transform.position = hit.point;
+
+            RaycastHit hit = new RaycastHit();
+            Input.simulateMouseWithTouches = true;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                gameObject.SetActive(true);
+                gameObject.transform.position = hit.point;
+                if(gameObject.name == "Bomb")
+                {
+                    Debug.Log("arrojo bomba");
+                }
+            }
         }
     }
 

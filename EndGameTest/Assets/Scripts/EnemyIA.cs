@@ -24,6 +24,8 @@ public class EnemyIA : MonoBehaviour
     public float timeBetweenAttacks;
     public bool alreadyAttacked;
     public GameObject projectile;
+    public Transform shooting;
+    public bool Soldier;
 
     //State
     public float sightRange, attackRange;
@@ -31,7 +33,7 @@ public class EnemyIA : MonoBehaviour
 
     //Rewarded
     public GameObject Coint;
-    
+    public Animator _animator;
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -76,21 +78,38 @@ public class EnemyIA : MonoBehaviour
     {
         agent.SetDestination(player.position);
 
+        _animator.SetBool("Run", true);
+
+        if (Soldier)
+            _animator.SetBool("Shoot", false);
+
+
     }
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
-        transform.LookAt(player);
-        if (!alreadyAttacked)
+        if (Soldier)
         {
-            //attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+            agent.SetDestination(transform.position);
+            transform.LookAt(player);
+            if (!alreadyAttacked)
+            {
+                //attack code here
+                //Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                Rigidbody rb = Instantiate(projectile, shooting.position, Quaternion.identity).GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+                rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+                _animator.SetBool("Shoot", true);
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
         }
+        else
+        {
+            agent.SetDestination(transform.position);
+            transform.LookAt(player);
+        }
+        
     }
 
     private void ResetAttack()
@@ -137,4 +156,14 @@ public class EnemyIA : MonoBehaviour
             Debug.Log("playerShoot");
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "FireDamage")
+        {
+            TakeDamage(2);
+
+        }
+    }
+
 }

@@ -1,5 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2128391999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128392000}
+  - component: {fileID: 2128392005}
+  - component: {fileID: 2128392004}
+  - component: {fileID: 2128392003}
+  - component: {fileID: 2128392002}
+  - component: {fileID: 2128392001}
+  - component: {fileID: 2128392006}
+  m_Layer: 8
+  m_Name: bOX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128392000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_LocalRotation: {x: -0, y: 0.0008726948, z: -0, w: 0.99999964}
+  m_LocalPosition: {x: -0.1, y: -0.4799999, z: -0.21}
+  m_LocalScale: {x: 2.0156682, y: 1.5834, z: 1.8256602}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4679837258406637288}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2128392005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 2.792497, z: 6.805801}
+  m_Center: {x: -3.28, y: 1.3985769, z: 0.12924062}
+--- !u!65 &2128392004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 2.792497, z: 6.805801}
+  m_Center: {x: 3.2, y: 1.3985769, z: 0.12924062}
+--- !u!65 &2128392003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5738883, y: 2.7924967, z: 0.53999984}
+  m_Center: {x: 1.9980456, y: 1.3985769, z: 3.1999967}
+--- !u!65 &2128392002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.666231, y: 2.7924967, z: 0.53999984}
+  m_Center: {x: -2.2118807, y: 1.3985769, z: -3.0699904}
+--- !u!65 &2128392001
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3998966, y: 2.7924967, z: 0.53999984}
+  m_Center: {x: -2.1750486, y: 1.3985769, z: 3.1999972}
+--- !u!65 &2128392006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128391999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4768329, y: 2.7924967, z: 0.5399997}
+  m_Center: {x: 2.067667, y: 1.3985769, z: -3.0699327}
 --- !u!1 &784749344980314823
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,13 +126,13 @@ GameObject:
   - component: {fileID: 4144325690891232255}
   - component: {fileID: 621330730048433299}
   - component: {fileID: 2161814299797576640}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sheriff_roof_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4144325690891232255
 Transform:
   m_ObjectHideFlags: 0
@@ -94,13 +209,13 @@ GameObject:
   - component: {fileID: 9035283328289796799}
   - component: {fileID: 6862321052132234768}
   - component: {fileID: 7220626891713407701}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sheriff_roof_001 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9035283328289796799
 Transform:
   m_ObjectHideFlags: 0
@@ -177,7 +292,7 @@ GameObject:
   - component: {fileID: 6399359887977076154}
   - component: {fileID: 4702361769607644954}
   - component: {fileID: 5062971118023890641}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sheriff_medal_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +541,7 @@ GameObject:
   - component: {fileID: 8488601637554151988}
   - component: {fileID: 8178152658806162059}
   - component: {fileID: 3056380193737247911}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: sheriff_top_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +637,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8550443338348748027}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.78, y: 0.008298874, z: -15.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -533,6 +648,7 @@ Transform:
   - {fileID: 6399359887977076154}
   - {fileID: 8488601637554151988}
   - {fileID: 1675238012758377829}
+  - {fileID: 2128392000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -547,5 +663,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16.02, y: 3, z: 13.48}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 16.02, y: 0.95733964, z: 13.48}
+  m_Center: {x: 0, y: -0.18866974, z: 0}

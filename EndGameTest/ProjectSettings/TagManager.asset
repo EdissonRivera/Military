@@ -10,6 +10,13 @@ TagManager:
   - Sheriff
   - Coint
   - PotionHealth
+  - Shield
+  - Key
+  - FireDamage
+  - Bomb
+  - Axe
+  - Gem
+  - Win
   layers:
   - Default
   - TransparentFX

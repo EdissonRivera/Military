@@ -42,6 +42,10 @@ public class ManagerControllerCharacter : MonoBehaviour
     public Inventory inventory;
     public GameObject Hand;
     public Shoot army;
+    public bool bombshell;
+    public GameObject prefabBomb;
+    public Transform referenceItem;
+    public GameObject End;
     void Start()
     {
         moveSpeed = 0.1f;
@@ -59,7 +63,9 @@ public class ManagerControllerCharacter : MonoBehaviour
             Hand.transform.GetChild(0).gameObject.SetActive(true);
             Hand.transform.GetChild(1).gameObject.SetActive(false);
             Hand.transform.GetChild(2).gameObject.SetActive(false);
-            army.nameArmy = "Weapon";
+            Hand.transform.GetChild(3).gameObject.SetActive(false);
+
+                army.nameArmy = "Weapon";
         }
 
         if (item.Name == "Axe")
@@ -67,6 +73,8 @@ public class ManagerControllerCharacter : MonoBehaviour
             Hand.transform.GetChild(0).gameObject.SetActive(false);
             Hand.transform.GetChild(1).gameObject.SetActive(true);
             Hand.transform.GetChild(2).gameObject.SetActive(false);
+            Hand.transform.GetChild(3).gameObject.SetActive(false);
+
             army.nameArmy = "Axe";
 
         }
@@ -76,10 +84,38 @@ public class ManagerControllerCharacter : MonoBehaviour
             Hand.transform.GetChild(0).gameObject.SetActive(false);
             Hand.transform.GetChild(1).gameObject.SetActive(false);
             Hand.transform.GetChild(2).gameObject.SetActive(true);
+            Hand.transform.GetChild(3).gameObject.SetActive(false);
+
             army.nameArmy = "FireGun";
 
         }
 
+        if (item.Name == "Shield")
+        {
+            Hand.transform.GetChild(0).gameObject.SetActive(false);
+            Hand.transform.GetChild(1).gameObject.SetActive(false);
+            Hand.transform.GetChild(2).gameObject.SetActive(false);
+            Hand.transform.GetChild(3).gameObject.SetActive(true);
+            army.nameArmy = "Shield";
+
+        }
+
+
+        if (item.Name == "Bomb")
+        {
+            Debug.Log("elimino");
+            inventory.RemoveItem(item);
+          GameObject bomb = Instantiate(prefabBomb, referenceItem.position, Quaternion.identity);
+            bomb.GetComponent<bombshell>().Explosion();
+            //item.OnDrop();
+        }
+
+
+
+        if (item.Name == "Poty")
+        {
+            PotionHealth();
+        }
 
         //goItem.SetActive(true);
 
@@ -127,6 +163,7 @@ public class ManagerControllerCharacter : MonoBehaviour
             _animator.SetBool("Shoot", true);
             moveSpeed = 0.05f;
             _shoot = true;
+            army.FireGunOn();
             //Shoot();
 
         }
@@ -134,11 +171,15 @@ public class ManagerControllerCharacter : MonoBehaviour
         {
             _shoot = false;
             _animator.SetBool("Shoot", false);
+            army.FireGunOff();
+
             moveSpeed = 0.1f;
         }
 
         if (_shoot == false)
         {
+            army.FireGunOff();
+
             if (inputX != 0 || inputZ != 0)
             {
                 Vector3 lookDir = new Vector3(vel_movement.x, 0, vel_movement.z);
@@ -161,7 +202,7 @@ public class ManagerControllerCharacter : MonoBehaviour
 
         if (other.tag == "bulletEnemy")
         {
-            TakeDamage(10);
+            TakeDamage(5);
             Debug.Log("disparoEnemy");
         }
 
@@ -178,7 +219,10 @@ public class ManagerControllerCharacter : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-
+        if (other.tag == "Win")
+        {
+            End.SetActive(true);
+        }
     }
 
 
@@ -190,6 +234,8 @@ public class ManagerControllerCharacter : MonoBehaviour
             other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             other.gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
+
+        
     }
 
 
@@ -203,6 +249,7 @@ public class ManagerControllerCharacter : MonoBehaviour
             if (_health <= 0)
             {
                 //Instantiate(Coint, transform.position, Quaternion.identity);
+                End.SetActive(true);
                 Invoke(nameof(DestroyEnemy), 0.5f);
             }
         }

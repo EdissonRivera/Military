@@ -8,9 +8,8 @@ public class ManagerJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
     private Image imgJoystickBg;
     private Image imgJoystick;
     private Vector2 posInput;
-    private float limitJoystick = 2;[
-    SerializeField]
-
+    [SerializeField]
+    private float limitJoystick = 4;
     // Start is called before the first frame update
     void Start()
     {

@@ -9,9 +9,14 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler,IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        Input.simulateMouseWithTouches = true;
+        if (Item.Name != "Axe" && Item.Name!="Weapon"&& Item.Name !="FireGun" && Item.Name != "Shield")
+        {
 
-        transform.position = Input.mousePosition;
+            Input.simulateMouseWithTouches = true;
+
+            transform.position = Input.mousePosition;
+        }
+    
     }
 
 

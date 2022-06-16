@@ -72,6 +72,7 @@ public class ManagerContRot : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     private Image imgJoystickBg;
     private Image imgJoystick;
     private Vector2 posInput;
+    [SerializeField]
     private float limitJoystick = 2;
     void Start()
     {

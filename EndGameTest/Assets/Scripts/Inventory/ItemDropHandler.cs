@@ -16,11 +16,15 @@ public class ItemDropHandler : MonoBehaviour,IDropHandler
         }
 
         */
+
+        
+
         RectTransform invPanel = transform as RectTransform;
         Input.simulateMouseWithTouches = true;
         if (!RectTransformUtility.RectangleContainsScreenPoint(invPanel, Input.mousePosition))
         {
             IInventoryItem item = eventData.pointerDrag.gameObject.GetComponent<ItemDragHandler>().Item;
+
             if (item != null)
             {
                 _Inventory.RemoveItem(item);
